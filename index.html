@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preparación ISTQB® CTFL v4.0 — Plataforma de Estudio QA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Encabezado Principal -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-badge">ISTQB v4.0</span>
+        <div>
+          <span class="brand-title">Centro de Estudio CTFL v4.0 — QA Manual</span>
+          <span class="brand-subtitle">Lectura por Capítulos • Simuladores 40 Preguntas (1h sin cierre) • Entrenador K3 • Flashcards</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button class="nav-btn active" data-view="dashboard">📊 Mi Diagnóstico</button>
+        <button class="nav-btn" data-view="reading">📖 Lectura (Cap. 1–6)</button>
+        <button class="nav-btn" data-view="k3">🧮 Entrenador K3</button>
+        <button class="nav-btn" data-view="simulators">⏱ Simuladores (40 Preg.)</button>
+        <button class="nav-btn" data-view="flashcards">🗂 Flashcards (Cap. 1–6)</button>
+      </nav>
+
+      <div class="theme-controls" aria-label="Selector de tono visual">
+        <button class="theme-btn active" data-theme="neutral" title="Tono piedra neutro">Neutro</button>
+        <button class="theme-btn" data-theme="warm" title="Tono papel cálido para lectura prolongada">Cálido</button>
+        <button class="theme-btn" data-theme="dark" title="Tono oscuro suave sin alto contraste">Oscuro</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- ==================== VISTA 1: MI DIAGNÓSTICO Y PLAN DE REFUERZO ==================== -->
+    <section id="view-dashboard" class="view-section active">
+      <div class="section-header">
+        <h1 class="section-title">Diagnóstico de tu Preparación ISTQB® Foundation Level v4.0</h1>
+        <p class="section-desc">
+          Análisis basado en tus archivos de <code>Division capitulos ISTQB</code> (Fichas de Estudio, resúmenes en Word y capturas de tus intentos en los Simuladores 1, 2, 3 y 4).
+        </p>
+      </div>
+
+      <!-- Tarjetas de Resumen Rápido -->
+      <div class="grid-4" style="margin-bottom:1.25rem;">
+        <div class="card" style="margin-bottom:0;">
+          <span class="badge">Meta Oficial ISTQB</span>
+          <div style="font-size:1.55rem;font-weight:700;margin:0.35rem 0;">26 / 40 (65%)</div>
+          <p style="font-size:0.84rem;color:var(--text-secondary);">40 preguntas de opción múltiple (1 punto c/u) en 60 minutos.</p>
+        </div>
+        <div class="card" style="margin-bottom:0;">
+          <span class="badge">Tu Mejor Puntaje</span>
+          <div style="font-size:1.55rem;font-weight:700;color:var(--success-text);margin:0.35rem 0;">33 / 40 (82.5%)</div>
+          <p style="font-size:0.84rem;color:var(--text-secondary);">Logrado en el Intento 4 del Simulador 2 (y 31/40 en el Simulador 3).</p>
+        </div>
+        <div class="card" style="margin-bottom:0;">
+          <span class="badge badge-priority">Prioridad #1 a Reforzar</span>
+          <div style="font-size:1.45rem;font-weight:700;margin:0.35rem 0;">Capítulos 5 y 4</div>
+          <p style="font-size:0.84rem;color:var(--text-secondary);">Juntos suman <strong>20 de las 40 preguntas (50%)</strong> y todos los ejercicios K3.</p>
+        </div>
+        <div class="card" style="margin-bottom:0;">
+          <span class="badge badge-priority">Prioridad #2 a Reforzar</span>
+          <div style="font-size:1.45rem;font-weight:700;margin:0.35rem 0;">Capítulos 6 y 3</div>
+          <p style="font-size:0.84rem;color:var(--text-secondary);">6 preguntas donde repetiste errores por palabras trampa fáciles de corregir.</p>
+        </div>
+      </div>
+
+      <!-- Hallazgo Crítico en Apuntes -->
+      <div class="callout callout-trampa" style="margin-bottom:1.5rem;">
+        <div class="callout-title">🔍 Hallazgo Clave en tus Apuntes que te Hizo Fallar 2 Veces la Pregunta 39</div>
+        <p style="margin-bottom:0.4rem;">
+          En tu documento <code>Repaso.docx</code> (imagen 14) y en la tabla del Capítulo 1 anotaste <strong>"Datos de prueba"</strong> dentro de <strong>Diseño de la prueba</strong>. Eso provocó que tanto en el Intento 3 como en el Intento 4 marcaras que una <em>"herramienta de preparación de datos"</em> apoya a <em>"Análisis y diseño de pruebas"</em>.
+        </p>
+        <p>
+          <strong>Corrección Oficial Syllabus v4.0:</strong> En el <strong>Diseño (4)</strong> solo se identifican los <em>requisitos de datos de prueba</em>, mientras que los <strong>datos de prueba reales</strong> se crean o adquieren en la <strong>Implementación de la prueba (5)</strong> para usarse en la <strong>Ejecución (6)</strong>. Por lo tanto, una herramienta de preparación de datos apoya a <strong>Implementación y Ejecución de pruebas</strong>.
+        </p>
+      </div>
+
+      <!-- Evolución Histórica de Simuladores -->
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
+          <h3 style="font-size:1.15rem;">1. Evolución de tus Intentos en Simuladores</h3>
+          <button class="btn btn-sm btn-primary" onclick="switchView('simulators')">Ir a Tomar un Simulador →</button>
+        </div>
+        <table class="study-table">
+          <thead>
+            <tr>
+              <th>Simulador / Archivo Analizado</th>
+              <th>Puntuación</th>
+              <th>Desglose por Capítulos</th>
+              <th>Diagnóstico Clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Simuladores 1 y 2 (Práctica inicial)</strong></td>
+              <td><strong>28–33 / 40</strong> (70%–82.5%)</td>
+              <td>Base general sólida</td>
+              <td>Por encima del mínimo de aprobación (26/40). Guardaste las capturas como banco de estudio.</td>
+            </tr>
+            <tr>
+              <td><strong>Intento 3 – Examen 2</strong><br><span style="font-size:0.78rem;color:var(--text-muted);">intento 3 ISTQB.docx</span></td>
+              <td><strong>28 / 40</strong> (70.0%)<br><span style="font-size:0.76rem;color:var(--text-muted);">(27 + Q35 correcta)</span></td>
+              <td>Cap.1: 6/8 • Cap.2: 4/6 • Cap.3: 2/4<br>Cap.4: 8/11 • Cap.5: 7/9 • Cap.6: 0/2</td>
+              <td>Fallos en Análisis vs. Planificación (Q4), Rol de prueba vs. Gestión (Q6), ATDD vs. BDD (Q10), Shift-Left (Q11), Walkthrough (Q17), Caja Blanca (Q24/Q25), Dependencias (Q33) y Herramienta de datos (Q39).</td>
+            </tr>
+            <tr>
+              <td><strong>Intento 4 – Simulador 2</strong><br><span style="font-size:0.78rem;color:var(--text-muted);">Intento 4 simulador 2.docx</span></td>
+              <td><strong>33 / 40</strong> (82.5%)</td>
+              <td>Cap.1: 7/8 • Cap.2: 6/6 • <strong>Cap.3: 0/4</strong><br>Cap.4: 10/11 • Cap.5: 9/9 • Cap.6: 1/2</td>
+              <td>Excelente mejora en Cap. 2, 4 y 5, pero repetiste Q15 (ventaja prueba estática), Q17 (Walkthrough dirigido por autor), Q20 (EP apartamentos con jardín) y Q39 (herramienta de datos).</td>
+            </tr>
+            <tr>
+              <td><strong>Simulador 3</strong><br><span style="font-size:0.78rem;color:var(--text-muted);">Simulador 3.docx</span></td>
+              <td><strong>31 / 40</strong> (77.5%)</td>
+              <td>Cap.1: 6/8 • Cap.2: 6/6 • Cap.3: 4/4<br>Cap.4: 10/11 • <strong>Cap.5: 4/9</strong> • Cap.6: 1/2</td>
+              <td>100% en Cap. 2 y 3, pero caída fuerte en el <strong>Capítulo 5 (4/9)</strong>: Extrapolación con gráfico (Q31), Cuadrantes de prueba (Q34), Análisis de riesgo (Q35) e Informe de defecto sin entorno (Q38).</td>
+            </tr>
+            <tr>
+              <td><strong>Intento 1 – Simulador 4</strong><br><span style="font-size:0.78rem;color:var(--text-muted);">Intento 1 simulador 4.docx</span></td>
+              <td><strong>23 / 39</strong> (59.0%)</td>
+              <td>Cap.1: 7/8 • Cap.2: 5/6 • <strong>Cap.3: 1/4</strong><br><strong>Cap.4: 6/11</strong> • <strong>Cap.5: 3/9</strong> • Cap.6: 1/1</td>
+              <td>Banco de preguntas más analítico (Modelo D): tropiezos en cálculos K3 de Cap. 4 (EP resta de años, Tabla de decisión, Transición de estados, 3C y ATDD) y Cap. 5 (Tres puntos × 4 casos, Cobertura adicional, Cuadrantes, Impacto de riesgo e Informes).</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 style="margin-top:1.25rem;margin-bottom:0.5rem;">Tus Nuevos Intentos Realizados en esta Plataforma Web:</h4>
+        <table class="study-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Simulador</th>
+              <th>Puntaje</th>
+              <th>Estado y Tiempo</th>
+            </tr>
+          </thead>
+          <tbody id="custom-sim-history-body"></tbody>
+        </table>
+      </div>
+
+      <!-- Las 7 Áreas Exactas a Reforzar -->
+      <div class="section-header" style="margin-top:1.75rem;">
+        <h2 class="section-title" style="font-size:1.3rem;">2. Tus 7 Puntos Débiles Específicos y Cómo Corregirlos Hoy</h2>
+        <p class="section-desc">Haz clic en cualquiera de los botones para ir directamente a estudiar o practicar ese punto.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge badge-priority">Debilidad #1 • Capítulo 5 (5.1.7)</span>
+          <h3 style="margin:0.4rem 0;">Cuadrantes de Prueba (Q1, Q2, Q3, Q4)</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.8rem;">
+            <strong>Tu error (Sim 3 Q34 y Sim 4 Q33):</strong> Marcaste dos veces que los 4 cuadrantes dividen el proceso en 4 etapas que corresponden a los 4 niveles de prueba.<br>
+            <strong>Regla para el examen:</strong> Los cuadrantes NO son los niveles de prueba. Agrupan los tipos de prueba según dos ejes (<em>Orientados a la Tecnología o al Negocio</em> / <em>Apoyan al equipo o Critican el producto</em>) para ayudar a interesados no técnicos a entender por qué se necesitan todos los tipos de pruebas.
+          </p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn btn-sm" onclick="switchView('reading', { chapterId: 5 })">📖 Leer Cap. 5.1.7</button>
+            <button class="btn btn-sm" onclick="switchView('flashcards', { chapterFilter: 5 })">🗂 Flashcards Cap. 5</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-priority">Debilidad #2 • Capítulo 5 (5.1.4 - Nivel K3)</span>
+          <h3 style="margin:0.4rem 0;">Cálculos de Estimación (Tres Puntos y Extrapolación)</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.8rem;">
+            <strong>Tus errores (Sim 3 Q31 y Sim 4 Q31):</strong><br>
+            1) En <em>Tres Puntos</em> calculaste bien $E = (1 + 4\times 3 + 8)/6 = 3,5\text{ h}$ para 1 caso, pero olvidaste multiplicar por los <strong>4 casos</strong> ($3,5 \times 4 = 14\text{ h}$).<br>
+            2) En <em>Extrapolación</em> leíste la barra <em>Estimated</em> (9) en vez de la barra <em>Actual</em> ($A(4)=6, A(3)=8 \implies 6,5$).
+          </p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn btn-sm btn-primary" onclick="switchView('k3')">🧮 Practicar en Entrenador K3</button>
+            <button class="btn btn-sm" onclick="switchView('reading', { chapterId: 5 })">📖 Leer Cap. 5.1.4</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-priority">Debilidad #3 • Capítulo 5 (5.1.5 - Nivel K3)</span>
+          <h3 style="margin:0.4rem 0;">Priorización por Cobertura Adicional y Dependencias</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.8rem;">
+            <strong>Tus errores (Intento 3 Q33 y Sim 4 Q32):</strong><br>
+            • En <em>Cobertura Adicional</em> no mires cuál fila tiene menos <code>X</code> en total; ve tachando los requisitos ya cubiertos en cada paso y elige el caso que aporte más requisitos <strong>nuevos</strong> (`TC1` $\rightarrow$ `TC3` $\rightarrow$ `TC4` $\rightarrow$ `TC2` queda de último).<br>
+            • Si hay <em>Dependencias lógicas</em>, estas mandan primero antes de ejecutar el caso de Prioridad 1.
+          </p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn btn-sm btn-primary" onclick="switchView('k3')">🧮 Ver Paso a Paso en Entrenador K3</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-priority">Debilidad #4 • Capítulo 5 (5.2 y 5.3/5.5)</span>
+          <h3 style="margin:0.4rem 0;">Riesgos (Cálculo e Identificación) e Informes</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.8rem;">
+            <strong>Tus errores (Sim 3 Q38, Sim 4 Q34, Q35, Q36):</strong><br>
+            • Si $\text{Riesgo} = \$1.000$ y $\text{Probabilidad} = 50\%$, despeja <strong>dividiendo</strong>: $\text{Impacto} = \$1.000 / 0,50 = \$2.000$.<br>
+            • <em>"Reducción de costes"</em> es riesgo de <strong>Proyecto</strong>; <em>"Arquitectura deficiente"</em> es riesgo de <strong>Producto</strong>.<br>
+            • Los <em>"pasos para reproducir un defecto"</em> van en el Informe de Defecto, no en el Informe de Progreso; y si un defecto no es reproducible, revisa si falta el <strong>Entorno de prueba y su versión</strong>.
+          </p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn btn-sm btn-primary" onclick="switchView('k3')">🧮 Calculadora de Riesgo K3</button>
+            <button class="btn btn-sm" onclick="switchView('reading', { chapterId: 5 })">📖 Leer Cap. 5.2 – 5.5</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-priority">Debilidad #5 • Capítulo 4 (4.2 - Caja Negra K3)</span>
+          <h3 style="margin:0.4rem 0;">EP con Restricciones, Tablas de Decisión y Estados</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.8rem;">
+            <strong>Tus errores (Intento 4 Q20, Sim 4 Q20, Q22, Q23):</strong><br>
+            • En el formulario de apartamentos donde <em>"solo planta baja tiene jardín"</em>, hacen falta <strong>4 casos</strong> (2 con planta baja para jardín pequeño y grande + 2 para 1.er y 2.º piso sin jardín).<br>
+            • En Transición de Estados, cuenta pares únicos <code>(EstadoOrigen + Evento)</code> sin repetir la misma flecha.
+          </p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn btn-sm btn-primary" onclick="switchView('k3')">🧮 Practicar Caja Negra K3</button>
+            <button class="btn btn-sm" onclick="switchView('reading', { chapterId: 4 })">📖 Leer Cap. 4.2</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-priority">Debilidad #6 • Capítulos 4.5, 3 y 6</span>
+          <h3 style="margin:0.4rem 0;">3C / ATDD, Revisiones Estáticas y Herramientas</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.8rem;">
+            • <strong>3C (Cap. 4.5):</strong> La <strong>Conversación</strong> logra la comprensión colectiva. En <strong>ATDD</strong> nunca elijas un caso que pruebe otro rol o navegadores no pedidos en los criterios.<br>
+            • <strong>Revisiones (Cap. 3):</strong> Reunión dirigida por el autor = <strong>Recorrido (Walkthrough)</strong>. Reuniones eficaces y hablar libremente = <strong>Moderador</strong>. Los <strong>contratos</strong> SÍ se revisan estáticamente; el <strong>código cifrado</strong> NO.<br>
+            • <strong>Herramientas (Cap. 6):</strong> Preparación de datos apoya a <strong>Implementación y Ejecución</strong>.
+          </p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn btn-sm" onclick="switchView('reading', { chapterId: 3, filter: 'trampa' })">📖 Ver Trampas Cap. 3</button>
+            <button class="btn btn-sm" onclick="switchView('flashcards', { chapterFilter: 'weakness' })">🗂 Flashcards de Mis Debilidades</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VISTA 2: APARTADO DE LECTURA (CAPÍTULOS 1 AL 6) ==================== -->
+    <section id="view-reading" class="view-section">
+      <div class="reading-toolbar">
+        <div class="reading-filter-tabs">
+          <button class="filter-tab active" data-rfilter="all">📚 Todo el Capítulo</button>
+          <button class="filter-tab" data-rfilter="ficha">📌 Solo Fichas de Estudio (Lo Esencial)</button>
+          <button class="filter-tab" data-rfilter="ejercicio">🧮 Ejercicios K3 Resueltos</button>
+          <button class="filter-tab" data-rfilter="trampa">⚠️ Mis Trampas de Examen</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+          <input type="search" id="reading-search-input" class="search-input" placeholder="Buscar en este capítulo..." />
+          <button class="btn btn-sm" id="font-dec-btn" title="Reducir tamaño de texto">A-</button>
+          <button class="btn btn-sm" id="font-inc-btn" title="Aumentar tamaño de texto">A+</button>
+        </div>
+      </div>
+
+      <div class="reading-layout">
+        <aside class="reading-sidebar">
+          <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">
+            Capítulos del Syllabus v4.0
+          </div>
+          <div id="chapter-select-list" class="chapter-select-list"></div>
+
+          <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem;">
+            Secciones del Capítulo Actual
+          </div>
+          <ul id="reading-toc-list" class="toc-list"></ul>
+        </aside>
+
+        <div id="reading-main-article" class="reading-content"></div>
+      </div>
+    </section>
+
+    <!-- ==================== VISTA 3: ENTRENADOR PRÁCTICO K3 PASO A PASO ==================== -->
+    <section id="view-k3" class="view-section">
+      <div class="section-header">
+        <h1 class="section-title">Entrenador Interactivo de Ejercicios Prácticos K3 (Capítulos 4 y 5)</h1>
+        <p class="section-desc">
+          Practica paso a paso las fórmulas y métodos exactos de resolución para no perder ni un solo punto en las preguntas prácticas del examen.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Entrenador 1: Estimación de Tres Puntos -->
+        <div class="card">
+          <span class="badge badge-k3">Capítulo 5.1.4 • Nivel K3 (Tu error en Simulador 4 Q31)</span>
+          <h3 style="margin:0.45rem 0;">1. Estimación de Tres Puntos (Para 1 y N Casos de Prueba)</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);">
+            Recuerda siempre revisar al final del enunciado si te piden la estimación para <strong>1 elemento</strong> o para <strong>varios elementos ($N$)</strong>. Prueba con los valores del Simulador 4 ($a=1, m=3, b=8, N=4$):
+          </p>
+          <div class="k3-calc-box">
+            <div class="k3-input-row">
+              <div class="k3-field">
+                <label for="k3-pert-a">Optimista (a)</label>
+                <input type="number" id="k3-pert-a" value="1" step="0.5" />
+              </div>
+              <div class="k3-field">
+                <label for="k3-pert-m">Más probable (m)</label>
+                <input type="number" id="k3-pert-m" value="3" step="0.5" />
+              </div>
+              <div class="k3-field">
+                <label for="k3-pert-b">Pesimista (b)</label>
+                <input type="number" id="k3-pert-b" value="8" step="0.5" />
+              </div>
+              <div class="k3-field">
+                <label for="k3-pert-n">N.º de Casos (N)</label>
+                <input type="number" id="k3-pert-n" value="4" min="1" step="1" />
+              </div>
+              <button class="btn btn-primary" id="k3-pert-btn">Calcular</button>
+            </div>
+            <div id="k3-pert-output" class="k3-result-box"></div>
+          </div>
+        </div>
+
+        <!-- Entrenador 2: Nivel de Riesgo e Impacto Inverso -->
+        <div class="card">
+          <span class="badge badge-k3">Capítulo 5.2.1 • Cálculo Cuantitativo (Tu error en Simulador 4 Q34)</span>
+          <h3 style="margin:0.45rem 0;">2. Despeje de Impacto de Riesgo (Riesgo = Probabilidad × Impacto)</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);">
+            Cuando el problema ya te da el <strong>Nivel de Riesgo ($)</strong> y la <strong>Probabilidad (%)</strong>, ¡nunca los multipliques! Debes <strong>dividir</strong> el Nivel de Riesgo entre la Probabilidad en decimal:
+          </p>
+          <div class="k3-calc-box">
+            <div class="k3-input-row">
+              <div class="k3-field">
+                <label for="k3-risk-level">Nivel de Riesgo ($)</label>
+                <input type="number" id="k3-risk-level" value="1000" step="100" />
+              </div>
+              <div class="k3-field">
+                <label for="k3-risk-prob">Probabilidad (%)</label>
+                <input type="number" id="k3-risk-prob" value="50" min="1" max="100" />
+              </div>
+              <button class="btn btn-primary" id="k3-risk-btn">Despejar Impacto</button>
+            </div>
+            <div id="k3-risk-output" class="k3-result-box"></div>
+          </div>
+        </div>
+
+        <!-- Entrenador 3: Análisis de Valores Límite (2 vs 3 valores) -->
+        <div class="card">
+          <span class="badge badge-k3">Capítulo 4.2.2 • Nivel K3 (Valores Frontera)</span>
+          <h3 style="margin:0.45rem 0;">3. Generador de Valores Límite (BVA de 2 Valores vs. 3 Valores)</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);">
+            Introduce el mínimo y máximo de cualquier partición entera válida para ver qué puntos exige <strong>BVA de 2 valores</strong> y qué puntos adicionales exige <strong>BVA de 3 valores</strong>:
+          </p>
+          <div class="k3-calc-box">
+            <div class="k3-input-row">
+              <div class="k3-field">
+                <label for="k3-bva-min">Límite Inferior Válido</label>
+                <input type="number" id="k3-bva-min" value="6" />
+              </div>
+              <div class="k3-field">
+                <label for="k3-bva-max">Límite Superior Válido</label>
+                <input type="number" id="k3-bva-max" value="12" />
+              </div>
+              <button class="btn btn-primary" id="k3-bva-btn">Ver Valores Límite</button>
+            </div>
+            <div id="k3-bva-output" class="k3-result-box"></div>
+          </div>
+        </div>
+
+        <!-- Entrenador 4: Método Paso a Paso para Cobertura Adicional -->
+        <div class="card">
+          <span class="badge badge-k3">Capítulo 5.1.5 • Nivel K3 (Tu error en Simulador 4 Q32)</span>
+          <h3 style="margin:0.45rem 0;">4. Algoritmo Paso a Paso: Priorización por Cobertura Adicional</h3>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.65rem;">
+            Mira cómo se resuelve la matriz de trazabilidad del Simulador 4 sin caer en la trampa de contar solo el total de <code>X</code>:
+          </p>
+          <table class="study-table" style="font-size:0.84rem;">
+            <thead>
+              <tr>
+                <th>Caso</th>
+                <th>Requisitos Cubiertos</th>
+                <th>Orden Correcto Paso a Paso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>TC1</strong></td>
+                <td><code>Req1, Req3, Req4, Req7</code> (4)</td>
+                <td><strong>1.º en ejecutarse:</strong> Cubre 4 requisitos nuevos. Tachamos <code>R1, R3, R4, R7</code>. Quedan pendientes: <code>R2, R5, R6</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>TC3</strong></td>
+                <td><code>Req5, Req6</code> (2)</td>
+                <td><strong>2.º en ejecutarse:</strong> De los pendientes (<code>R2, R5, R6</code>), TC3 cubre <strong>2 nuevos</strong> (mientras que TC2 solo cubriría <code>R5</code>). Tachamos <code>R5, R6</code>. Queda pendiente solo <code>R2</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>TC4</strong></td>
+                <td><code>Req2</code> (1)</td>
+                <td><strong>3.º en ejecutarse:</strong> Es el único que cubre el requisito faltante <code>R2</code>. ¡Ya tenemos 100% de los 7 requisitos!</td>
+              </tr>
+              <tr>
+                <td><strong>TC2</strong></td>
+                <td><code>Req1, Req5, Req7</code> (3)</td>
+                <td><strong>4.º (ÚLTIMO):</strong> Como <code>R1</code> y <code>R7</code> ya los cubrió TC1, y <code>R5</code> ya lo cubrió TC3, TC2 aporta <strong>0 requisitos adicionales</strong> en este punto.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VISTA 4: SIMULADORES DE EXAMEN (40 PREGUNTAS / 1 HORA SIN CIERRE) ==================== -->
+    <section id="view-simulators" class="view-section">
+      <!-- Menú de Selección de Simuladores -->
+      <div id="sim-hub-container">
+        <div class="section-header">
+          <h1 class="section-title">Simuladores de Examen de Práctica (40 Preguntas)</h1>
+          <p class="section-desc">
+            Cada simulador consta de <strong>40 preguntas</strong> y cuenta con un <strong>cronómetro de 1 hora (60:00)</strong> para que midas tu ritmo real. <strong>Si pasas de 1 hora, el examen NO se cierra</strong>: pasa a contar tiempo extra (<code>+00:01</code>...) para que termines con tranquilidad. Todas las preguntas incluyen la explicación detallada de por qué cada opción es correcta o incorrecta.
+          </p>
+        </div>
+
+        <div class="card" style="background-color:var(--bg-accent-subtle);margin-bottom:1.5rem;">
+          <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;font-weight:600;">
+            <input type="checkbox" id="hub-instant-mode-check" style="width:18px;height:18px;" />
+            <span>Activar "Modo Estudio Guiado" (Mostrar la explicación detallada de por qué es correcta/incorrecta al instante tras responder cada pregunta, además del resumen final)</span>
+          </label>
+          <p style="font-size:0.84rem;color:var(--text-secondary);margin-top:0.35rem;margin-left:1.8rem;">
+            Si lo dejas desmarcado, estarás en <strong>"Modo Examen Real"</strong> (verás todas las calificaciones y explicaciones al finalizar las 40 preguntas, o puedes activarlo/desactivarlo en cualquier momento dentro del examen).
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <!-- Simulador 1 -->
+          <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                <span class="badge" style="background:var(--success-bg);color:var(--success-text);">100% Oficial en Español</span>
+                <span class="badge">40 Preguntas • 60 min</span>
+              </div>
+              <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">Simulador 1: Examen Oficial Modelo A</h3>
+              <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:1rem;">
+                Distribución oficial exacta ISTQB CTFL v4.0 (8 Cap.1, 6 Cap.2, 4 Cap.3, 11 Cap.4, 9 Cap.5, 2 Cap.6). Incluye justificación completa de la opción correcta y de cada distractor (A, B, C, D).
+              </p>
+            </div>
+            <button class="btn btn-primary start-sim-btn" data-simid="sim-1">Iniciar Simulador 1 (40 preguntas) →</button>
+          </div>
+
+          <!-- Simulador 2 -->
+          <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                <span class="badge" style="background:var(--success-bg);color:var(--success-text);">100% Oficial en Español</span>
+                <span class="badge">40 Preguntas • 60 min</span>
+              </div>
+              <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">Simulador 2: Examen Oficial Modelo B</h3>
+              <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:1rem;">
+                Segundo modelo oficial en español con distribución estándar ISTQB y ejercicios prácticos K3 de lavado de coches, valores frontera de 3 valores, tabla de colesterol, transición de estados con guardas y estimación por proporciones.
+              </p>
+            </div>
+            <button class="btn btn-primary start-sim-btn" data-simid="sim-2">Iniciar Simulador 2 (40 preguntas) →</button>
+          </div>
+
+          <!-- Simulador 3 -->
+          <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;border:2px solid var(--accent-primary);">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;margin-bottom:0.5rem;flex-wrap:wrap;">
+                <span class="badge badge-priority">★ Recomendado para tus Debilidades (Cap. 4, 5 y 6)</span>
+                <span class="badge">Incluye Aviso en Preguntas Modelo C/D</span>
+              </div>
+              <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">Simulador 3: Intensivo Capítulos 4, 5 y 6 + Tus Errores de Simuladores 3 y 4</h3>
+              <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:1rem;">
+                Concentra <strong>30 preguntas de los Capítulos 4, 5 y 6</strong> + las preguntas trampa de los Capítulos 1, 2 y 3 que fallaste en tus intentos y las preguntas oficiales adicionales (A1–A26). Las preguntas provenientes de los <strong>Modelos C y D traducidos</strong> muestran una alerta clara con el término original en inglés.
+              </p>
+            </div>
+            <button class="btn btn-primary start-sim-btn" data-simid="sim-3">Iniciar Simulador 3 de Refuerzo (40 preguntas) →</button>
+          </div>
+
+          <!-- Simulador 4 -->
+          <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                <span class="badge">Personalizable y Aleatorio</span>
+                <span class="badge">Banco Total de 120 Preguntas</span>
+              </div>
+              <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">Simulador 4: Generador Inteligente a tu Medida</h3>
+              <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.8rem;">
+                Genera un nuevo examen de 40 preguntas barajadas según tu preferencia:
+              </p>
+              <div style="margin-bottom:0.75rem;">
+                <label for="sim4-focus-mode" style="font-size:0.82rem;font-weight:600;display:block;margin-bottom:0.25rem;">Distribución de preguntas:</label>
+                <select id="sim4-focus-mode" class="search-input" style="width:100%;">
+                  <option value="weakness">Enfoque Refuerzo: 75% Capítulos 4, 5 y 6 (30 de 40 preguntas)</option>
+                  <option value="official">Distribución Oficial ISTQB (8 Cap.1, 6 Cap.2, 4 Cap.3, 11 Cap.4, 9 Cap.5, 2 Cap.6)</option>
+                </select>
+              </div>
+              <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.84rem;margin-bottom:1rem;cursor:pointer;">
+                <input type="checkbox" id="sim4-include-cd" checked />
+                <span>Incluir preguntas traducidas de los Modelos C y D (con aviso visible)</span>
+              </label>
+            </div>
+            <button class="btn btn-primary start-sim-btn" data-simid="sim-4">Generar e Iniciar Simulador 4 (40 preguntas) →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejecutor del Simulador Activo -->
+      <div id="sim-runner-container" style="display:none;">
+        <div class="sim-top-bar">
+          <div>
+            <strong id="sim-active-title" style="font-size:1rem;display:block;">Simulador</strong>
+            <span id="sim-answered-counter" style="font-size:0.83rem;color:var(--text-secondary);">0 / 40 respondidas</span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:0.85rem;flex-wrap:wrap;">
+            <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.83rem;cursor:pointer;">
+              <input type="checkbox" id="sim-instant-toggle" />
+              <span>Ver explicación al responder</span>
+            </label>
+
+            <div class="timer-box" id="sim-timer-box">
+              <div>
+                <div id="sim-timer-digits" class="timer-digits">60:00</div>
+                <div id="sim-timer-status" style="font-size:0.7rem;color:var(--text-muted);">Tiempo restante (1h)</div>
+              </div>
+              <button class="btn btn-sm" id="sim-pause-btn">⏸ Pausar</button>
+            </div>
+
+            <button class="btn btn-primary btn-sm" id="sim-finish-btn">Finalizar Examen ✓</button>
+            <button class="btn btn-sm" id="sim-exit-btn">Salir</button>
+          </div>
+        </div>
+
+        <div class="sim-layout">
+          <div id="sim-question-card-holder"></div>
+
+          <aside class="question-nav-panel">
+            <div style="font-size:0.85rem;font-weight:600;margin-bottom:0.35rem;">Mapa de las 40 Preguntas</div>
+            <div style="font-size:0.76rem;color:var(--text-muted);">
+              Haz clic en cualquier número para saltar a esa pregunta. El examen nunca se cierra aunque pases de 1 hora.
+            </div>
+            <div id="sim-question-grid" class="q-grid"></div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Contenedor de Resultados y Explicaciones -->
+      <div id="sim-results-container" style="display:none;"></div>
+    </section>
+
+    <!-- ==================== VISTA 5: FLASHCARDS DE ESTUDIO (CAP. 1 AL 6 SIN LÍMITE) ==================== -->
+    <section id="view-flashcards" class="view-section">
+      <div class="section-header">
+        <h1 class="section-title">Flashcards de Estudio por Capítulo (Capítulos 1 al 6)</h1>
+        <p class="section-desc">
+          Tarjetas basadas en tu documento <strong>Fichas de Estudio ISTQB</strong>, tus apuntes en Word, el Syllabus v4.0 y las preguntas que fallaste en los simuladores. Haz clic o toca la tarjeta para voltearla.
+        </p>
+      </div>
+
+      <div class="reading-toolbar">
+        <div style="display:flex;align-items:center;gap:0.65rem;flex-wrap:wrap;">
+          <label for="fc-chapter-select" style="font-weight:600;font-size:0.88rem;">Filtrar por Capítulo:</label>
+          <select id="fc-chapter-select" class="search-input">
+            <option value="all">Todos los Capítulos (1 al 6 — Todas las tarjetas)</option>
+            <option value="weakness">⚠️ Solo Mis Debilidades y Trampas de Examen</option>
+            <option value="pending">⏳ Pendientes por Dominar</option>
+            <option value="1">Capítulo 1: Fundamentos de la Prueba</option>
+            <option value="2">Capítulo 2: Pruebas a lo Largo del SDLC</option>
+            <option value="3">Capítulo 3: Pruebas Estáticas</option>
+            <option value="4">Capítulo 4: Análisis y Diseño de Pruebas (Prioridad Alta)</option>
+            <option value="5">Capítulo 5: Gestión de las Actividades de Prueba (Prioridad Muy Alta)</option>
+            <option value="6">Capítulo 6: Herramientas de Prueba (Prioridad Alta)</option>
+          </select>
+          <button class="btn btn-sm" id="fc-shuffle-btn">🔀 Barajar Tarjetas</button>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+          <span id="fc-mastery-summary" class="badge" style="font-size:0.82rem;">Dominadas: 0</span>
+          <input type="search" id="fc-search-input" class="search-input" placeholder="Buscar concepto en tarjetas..." />
+        </div>
+      </div>
+
+      <div class="flashcard-stage">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem;">
+          <span id="fc-counter-label" style="font-weight:600;font-size:0.92rem;color:var(--text-secondary);">Tarjeta 1</span>
+          <span id="fc-status-badge" class="badge">⏳ Por repasar</span>
+        </div>
+
+        <div id="fc-card-inner" class="flashcard-inner">
+          <!-- Frente de la tarjeta -->
+          <div class="flashcard-face flashcard-front">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span id="fc-front-tag" class="badge">Capítulo 1</span>
+              <span style="font-size:0.78rem;color:var(--text-muted);">Toca o haz clic para ver la respuesta ↻</span>
+            </div>
+            <div class="flashcard-content-center">
+              <div id="fc-front-question" class="flashcard-question"></div>
+            </div>
+            <div style="text-align:center;font-size:0.8rem;color:var(--text-muted);">Pregunta / Concepto Clave</div>
+          </div>
+
+          <!-- Dorso de la tarjeta -->
+          <div class="flashcard-face flashcard-back">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+              <span id="fc-back-tag" class="badge">Respuesta</span>
+              <span style="font-size:0.78rem;color:var(--text-muted);">Toca para volver al frente ↻</span>
+            </div>
+            <div style="overflow-y:auto;max-height:220px;padding-right:0.25rem;">
+              <div id="fc-back-answer" class="flashcard-answer"></div>
+            </div>
+            <div style="text-align:center;font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;">Explicación / Ficha de Estudio</div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;margin-top:1.25rem;">
+          <button class="btn" id="fc-prev-btn">← Tarjeta Anterior</button>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="btn btn-sm" id="fc-mark-review-btn">⏳ Repasar luego</button>
+            <button class="btn btn-sm btn-primary" id="fc-mark-mastered-btn">✔ Ya la domino</button>
+          </div>
+          <button class="btn" id="fc-next-btn">Siguiente Tarjeta →</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Datos y Lógica -->
+  <script src="data_chapters.js"></script>
+  <script src="data_flashcards.js"></script>
+  <script src="data_exams.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
