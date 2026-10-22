@@ -673,10 +673,22 @@
       6: { right: 0, total: 0 }
     };
 
+    const wrongQuestions = [];
     state.simQuestions.forEach((q) => {
       const uAns = state.simAnswers[q.id] || [];
       const isRight = arraysEqualIgnoreOrder(uAns, q.correct);
-      if (isRight) correctCount += 1;
+      if (isRight) {
+        correctCount += 1;
+      } else {
+        wrongQuestions.push({
+          id: q.id,
+          num: q.num,
+          chapter: q.chapter,
+          lo: q.lo,
+          userAns: uAns,
+          correctAns: q.correct
+        });
+      }
       if (chapterStats[q.chapter]) {
         chapterStats[q.chapter].total += 1;
         if (isRight) chapterStats[q.chapter].right += 1;
@@ -690,7 +702,7 @@
     const secsUsed = state.simElapsedSeconds % 60;
     const overTime = state.simElapsedSeconds > 3600;
 
-    // Guardar en el historial local
+    // Guardar en el historial local incluyendo el detalle de preguntas falladas y capítulos
     const attemptRecord = {
       date: new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }),
       title: state.simConfig.title,
@@ -698,7 +710,9 @@
       total: totalQ,
       pct: pct,
       passed: passed,
-      timeStr: `${minsUsed}m ${secsUsed}s${overTime ? " (con tiempo extra)" : ""}`
+      timeStr: `${minsUsed}m ${secsUsed}s${overTime ? " (con tiempo extra)" : ""}`,
+      chapterStats: chapterStats,
+      wrongQuestions: wrongQuestions
     };
     state.simHistory.unshift(attemptRecord);
     localStorage.setItem("istqb_sim_history", JSON.stringify(state.simHistory.slice(0, 25)));
